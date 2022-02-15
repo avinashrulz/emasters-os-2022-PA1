@@ -15,6 +15,7 @@ int main(int argc, char **argv){
   *************************************************************/
 
   pid_t pid;
+  int fd[2];
 
   // TODO:
 
@@ -36,6 +37,17 @@ int main(int argc, char **argv){
   // TODO:
   
   //call to client here client(int readfd, int writefd);
+
+
+  else {
+if (write(fd[1], "Hello pipe\n", 11) != 11) {
+perror("write");
+exit (-1);
+}
+exit(0);
+}
+
+
 
   return 0;
 }
