@@ -13,6 +13,8 @@ void client(int readfd, int writefd){
   *************************************************************/
   char buf[MAX_BUFF];
   size_t len;
+  write()
+  printf("In Client/n");
 
   // implement client functionality
 

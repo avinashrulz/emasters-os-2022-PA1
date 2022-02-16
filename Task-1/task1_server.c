@@ -12,7 +12,8 @@ void server(int readfd, int writefd){
   *************************************************************/
   char buf[MAX_BUFF];
   size_t len;
-  printf("In Server");
+  printf("In Server\n");
+  printf("Hello");
 
   /* Implement server functionlity here
     use calculate function to evaluate expression
