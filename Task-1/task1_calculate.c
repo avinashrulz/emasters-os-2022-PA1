@@ -26,11 +26,11 @@ double calculate(char *buf){
   int a;
   int i = 0;
 
-  for (a=0; a<=40; a = a +2) {
+  for (a=0; a<=40; a = a + 2) {
     operands[i] = buf[a];
     i = i + 1;
   }
-  printf("%p\n", operands);
+  printf("%f\n", operands[0]);
 
   // implement expression evaluation functionality here
 
