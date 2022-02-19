@@ -12,8 +12,15 @@ void server(int readfd, int writefd){
   *************************************************************/
   char buf[MAX_BUFF];
   size_t len;
-  printf("In Server\n");
-  printf("Hello");
+
+    read(readfd, buf, 40);
+    // buf[40] = '\0';
+    printf("Reading in child: %s", buf);
+
+    calculate (buf);
+    
+    printf("In Server\n");
+    printf("Hello\n");
 
   /* Implement server functionlity here
     use calculate function to evaluate expression

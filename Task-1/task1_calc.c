@@ -15,6 +15,10 @@ int main(int argc, char **argv){
   *************************************************************/
 
   pid_t pid;
+  char buf[40];
+  char input[40] = "Avinash is great";
+  char *pointers = input;
+
   int fd[2];
 
   if (pipe(fd) < 0){
@@ -28,43 +32,23 @@ int main(int argc, char **argv){
 
   if(pid < 0){
     perror("Fork failed\n");
-    return 1;
+    exit(-1);
   }
 
-  if(pid == 0){
-
-    //Close write end of pipe in chile process
-    close(fd[1]); 
-
-    //close standard input in child process
-    close(0); 
-
-    //Now fd[0] is the standard input after this duplicate
-    dup(fd[0]);
+  if(!pid){ // Child process - Server
 
     // TODO:
-
     //call to server here: server(int readfd, int writefd);
-    
-    server(0, 1);
-    exit(0);
+    server(fd[0], fd[1]); 
+
+    wait(0);
+
   }
 
-  // TODO:
-  
+  // TODO:  
   //call to client here client(int readfd, int writefd);
+  // Parent process is the client
 
-//Close read end of pipe in chile process
-    close(fd[0]); 
-
-    //close standard output in child process
-    close(1); 
-
-    //Now fd[1] is the standard output after this duplicate
-    dup(fd[1]);
-
-    client(0, 1);
-
-
-  return 0;
+    client(fd[0], fd[1]);
+    wait(0);
 }

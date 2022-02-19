@@ -19,9 +19,20 @@ double calculate(char *buf){
   int oprnInd = 0;
   double result = 0.0;
 
+  printf("In Calculate\n");
+  printf("%s\n", buf);
+
+
+  int a;
+  int i = 0;
+
+  for (a=0; a<=40; a = a +2) {
+    operands[i] = buf[a];
+    i = i + 1;
+  }
+  printf("%p\n", operands);
+
   // implement expression evaluation functionality here
-
-
 
   return(result);
 }

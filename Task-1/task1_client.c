@@ -13,9 +13,12 @@ void client(int readfd, int writefd){
   *************************************************************/
   char buf[MAX_BUFF];
   size_t len;
-  write()
-  printf("In Client/n");
 
-  // implement client functionality
+    close(1);
+    dup(writefd);
+
+    printf("Enter your question:\n");
+    fgets(buf, sizeof(buf), stdin);
+    write (writefd,buf, 40);
 
 }
